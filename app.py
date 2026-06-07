@@ -425,25 +425,28 @@ st.markdown("""
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 2rem 0;">
         <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 16px 24px; border-radius: 16px;">
             <h4 style="color: #60a5fa; margin: 0 0 12px 0;">👨‍💻 Core Team</h4>
-            <div style="color: #e2e8f0; line-height: 1.6;">
-                Shivansh Mishra • Ravi Gupta<br>
-                Shiwanshu Singh • Harshvardhan Sisodiya<br>
-                Dhuru Madhuwal • Vishal Patel
+            <div style="color: #e2e8f0; line-height: 1.8; text-align: left;">
+                🎓 <strong>Shivansh Mishra</strong><br>
+                🎓 <strong>Ravi Gupta</strong><br>
+                🎓 <strong>Shiwanshu Singh</strong><br>
+                🎓 <strong>Harshvardhan Sisodiya</strong><br>
+                🎓 <strong>Dhuru Madhuwal</strong><br>
+                🎓 <strong>Vishal Patel</strong>
             </div>
         </div>
         <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); padding: 16px 24px; border-radius: 16px;">
             <h4 style="color: #c084fc; margin: 0 0 12px 0;">🏛️ Institution</h4>
-            <div style="color: #e2e8f0; line-height: 1.6;">
-                <strong>BBD University</strong><br>
-                B.Tech CSE - CC & ML<br>
-                Section 2A
+            <div style="color: #e2e8f0; line-height: 1.8; text-align: left;">
+                🏛️ <strong>BBD University</strong><br>
+                🎯 B.Tech CSE - Cloud Computing & Machine Learning<br>
+                📚 Section 2A | 🚀 Future AI Engineer
             </div>
         </div>
     </div>
     
     <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 2rem;">
         Predicting your dream home's value with precision.<br>
-        Academic Project • Machine Learning Portfolio • Innovation in AI
+        📧 Academic Project • 🎓 Machine Learning Portfolio • 💡 Innovation in AI
     </p>
 </div>
 """, unsafe_allow_html=True)
