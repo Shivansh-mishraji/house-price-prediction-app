@@ -1,0 +1,5 @@
+{
+  "buildCommand": "echo \"Skipping Vercel build, app is hosted on Streamlit Cloud\"",
+  "outputDirectory": "public",
+  "ignoreCommand": "exit 0"
+}
