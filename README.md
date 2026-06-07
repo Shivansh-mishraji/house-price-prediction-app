@@ -6,7 +6,7 @@ This app predicts house prices using machine learning based on property features
 
 ## Features
 - Predict house prices instantly
-- Based on Linear Regression model
+- Advanced Machine Learning Pipeline (`RandomForestRegressor` + `StandardScaler`)
 - Developed by: Shivansh Mishra, Ravi Gupta, and team
 - University: BBD University
 
