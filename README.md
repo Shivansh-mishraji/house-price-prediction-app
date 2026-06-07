@@ -1,21 +1,68 @@
-# House Price Prediction App 🏠
+# 🏠 House Price Prediction App
 
-*🌐 [Click Here to Use the Live App](https://shivansh-mishra-bbd-house-price-prediction-group-project-indian.streamlit.app/)*
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://shivansh-mishra-bbd-house-price-prediction-group-project-indian.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-orange?logo=scikit-learn)](https://scikit-learn.org/)
 
-This app predicts house prices using machine learning based on property features.
+An advanced, interactive web application that predicts house prices based on various property features. This project utilizes a highly accurate Machine Learning pipeline to provide precise, real-time real estate valuations.
 
-## Features
-- Predict house prices instantly
-- Advanced Machine Learning Pipeline (`RandomForestRegressor` + `StandardScaler`)
-- Developed by: Shivansh Mishra, Ravi Gupta, and team
-- University: BBD University
+## 🚀 Live Demo
+**[Click Here to Use the Live App](https://shivansh-mishra-bbd-house-price-prediction-group-project-indian.streamlit.app/)**
 
-## How to Use
-1. Enter house details (living area, bedrooms, bathrooms, etc.)
-2. Click predict
-3. Get instant price prediction
+---
 
-## Installation (For Local Use)
-*pip install -r requirements.txt*
+## ✨ Key Features
+- **Instant Predictions:** Get real-time house price estimates instantly via an interactive UI.
+- **Advanced ML Pipeline:** Powered by a robust Scikit-Learn pipeline (`RandomForestRegressor`, `StandardScaler`, `OneHotEncoder`).
+- **Beautiful UI/UX:** A responsive, gradient-styled frontend built with Streamlit and custom CSS.
+- **Comprehensive Metrics:** Analyzes square footage, location, overall condition, and more.
 
-*streamlit run app.py*
+## 🛠️ Technology Stack
+- **Frontend / Backend:** [Streamlit](https://streamlit.io/)
+- **Data Manipulation:** [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/)
+- **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/) (Random Forest)
+
+---
+
+## 👨‍💻 Development Team
+This is an academic Machine Learning project developed by students at **BBD University** (B.Tech CSE - Cloud Computing & ML):
+- **Shivansh Mishra**
+- **Ravi Gupta**
+- **Shiwanshu Singh**
+- **Harshvardhan Sisodiya**
+- **Dhuru Madhuwal**
+- **Vishal Patel**
+
+---
+
+## 💻 Local Installation
+
+To run this project locally on your machine, follow these steps:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Shivansh-mishraji/house-price-prediction-app.git
+cd house-price-prediction-app
+```
+
+### 2. Install Dependencies
+Make sure you have Python installed. Then, install the required packages:
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the Application
+Start the Streamlit server:
+```bash
+streamlit run app.py
+```
+
+### 4. (Optional) Retrain the Model
+If you wish to re-train the machine learning model from scratch with the provided dataset:
+```bash
+python train.py
+```
+This will generate a fresh `model.pkl` file using the robust Random Forest pipeline.
+
+---
+*Built with ❤️ for predicting your dream home's value with precision.*
