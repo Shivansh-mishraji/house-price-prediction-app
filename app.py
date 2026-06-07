@@ -17,36 +17,191 @@ st.set_page_config(
 # Custom CSS for better styling
 st.markdown("""
 <style>
-    .main-header {
-        font-size: 2.5rem;
-        color: #1f77b4;
-        text-align: center;
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', sans-serif !important;
+    }
+
+    /* Background */
+    .stApp {
+        background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%),
+                    radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 40%),
+                    #0b0f19;
+        color: #e2e8f0;
+    }
+    
+    /* Header Container */
+    .header-container {
+        display: flex;
+        align-items: center;
+        gap: 16px;
         margin-bottom: 2rem;
+        padding: 24px;
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     }
-    .stButton > button {
-        background-color: #1f77b4;
-        color: white;
-        font-weight: bold;
-        border-radius: 10px;
-        border: none;
-        padding: 0.5rem 1rem;
-        width: 100%;
+    .header-icon {
+        font-size: 3rem;
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background: rgba(15, 23, 42, 0.6) !important;
+        backdrop-filter: blur(20px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Input Fields */
+    .stNumberInput > div > div > input,
+    .stSelectbox > div > div > div,
+    .stSlider > div > div {
+        background: rgba(15, 23, 42, 0.6) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        color: white !important;
+        transition: all 0.3s ease;
+    }
+
+    .stNumberInput > div > div > input:focus,
+    .stSelectbox > div > div > div:focus-within {
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+    }
+
+    /* Form container */
+    [data-testid="stForm"] {
+        background: rgba(30, 41, 59, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(16px) !important;
+        border-radius: 24px !important;
+        padding: 32px !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Primary Button */
+    .stButton > button, [data-testid="stFormSubmitButton"] > button {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+        color: white !important;
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 800 !important;
+        font-size: 1.1rem !important;
+        letter-spacing: 0.5px !important;
+        border-radius: 12px !important;
+        border: none !important;
+        padding: 14px 24px !important;
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4) !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        width: 100% !important;
+    }
+    .stButton > button:hover, [data-testid="stFormSubmitButton"] > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.6) !important;
+    }
+
+    /* Prediction Container */
     .prediction-container {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-        padding: 2rem;
-        border-radius: 10px;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        backdrop-filter: blur(24px);
+        border-radius: 24px;
+        padding: 48px;
         text-align: center;
         color: white;
         margin-top: 2rem;
+        position: relative;
+        overflow: hidden;
+        animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 24px 48px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .prediction-container::before {
+        content: '';
+        position: absolute;
+        top: -50%; left: -50%; width: 200%; height: 200%;
+        background: radial-gradient(circle at center, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+        z-index: 0;
+        pointer-events: none;
+        animation: pulseGlow 4s infinite alternate;
+    }
+
+    .prediction-container > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .price-text {
+        font-family: 'Outfit', sans-serif;
+        font-size: 5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 10px 0;
+        filter: drop-shadow(0 8px 16px rgba(139, 92, 246, 0.3));
+    }
+
+    @keyframes slideUpFade {
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes pulseGlow {
+        0% { transform: scale(0.9); opacity: 0.5; }
+        100% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Metrics */
+    [data-testid="stMetric"] {
+        background: rgba(30, 41, 59, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 20px;
+        backdrop-filter: blur(12px);
+    }
+    [data-testid="stMetricValue"] {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 2.2rem !important;
+        font-weight: 800 !important;
+        color: #e2e8f0 !important;
+    }
+    [data-testid="stMetricLabel"] {
+        font-weight: 600 !important;
+        color: #94a3b8 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Footer & Expanders */
+    .streamlit-expanderHeader {
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 600 !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 
 # Title and description
-st.markdown('<h1 class="main-header">🏠 House Price Prediction App</h1>', unsafe_allow_html=True)
-st.markdown("### Predict house prices using machine learning based on property features")
+# Title and description
+st.markdown('''
+<div class="header-container">
+    <div class="header-icon">✨</div>
+    <div>
+        <h1 style="margin:0; font-size: 2.5rem; color: #fff;">House Price Predictor</h1>
+        <p style="margin:0; color: #94a3b8; font-size: 1.1rem; margin-top: 4px;">Predict property values using advanced Machine Learning</p>
+    </div>
+</div>
+''', unsafe_allow_html=True)
 
 
 # Load the pre-trained model (BUG FIX: Only load, don't train)
@@ -81,8 +236,9 @@ st.sidebar.markdown("This app uses a powerful Random Forest Regressor pipeline t
 
 
 # Main input form
+# Main input form
 with st.form("house_prediction_form"):
-    st.markdown("### Enter House Details")
+    st.markdown("<h3 style='margin-top: 0;'>📝 Enter Property Details</h3>", unsafe_allow_html=True)
     
     # Create columns for better layout
     col1, col2, col3 = st.columns(3)
@@ -206,11 +362,15 @@ if submitted:
         prediction = model.predict(input_data)[0]
         
         # Display prediction in a nice format by injecting all HTML in a single st.markdown block
+        # Display prediction in a nice format by injecting all HTML in a single st.markdown block
         st.markdown(f"""
         <div class="prediction-container">
-            <h2 style="color: white; margin-bottom: 0.5rem;">Predicted House Price</h2>
-            <h1 style="color: white; font-size: 3.5rem; margin: 0.5rem 0;">₹{prediction:,.0f}</h1>
-            <p style="font-size: 1.2rem; color: white;"><strong>Price per sq ft:</strong> ₹{prediction/sqft_living:,.0f}</p>
+            <h3 style="color: #cbd5e1; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem;">Estimated Property Value</h3>
+            <div class="price-text">₹{prediction:,.0f}</div>
+            <div style="display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 8px 20px; margin-top: 16px;">
+                <span style="color: #e2e8f0; font-weight: 600;">₹{prediction/sqft_living:,.0f}</span>
+                <span style="color: #94a3b8; font-size: 0.9rem;"> per sq ft</span>
+            </div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -257,63 +417,53 @@ with st.expander("ℹ️ Model Information & Features"):
 st.markdown("---")
 st.markdown("**Made with ❤️ using Streamlit** | House Price Prediction ML Model")
 
-# Enhanced footer with developer information (BUG FIX: Fixed invalid HTML tags h7, h8, h9)
+# Enhanced footer with developer information
 st.markdown("""
-<div class="footer">
-    <h3>🚀 Built with ❤️ using Streamlit & Machine Learning</h3>
-    <div style="margin: 1.5rem 0;">
-        <h4 style="color: #667eea; margin-bottom: 0.5rem;">👨‍💻 Developed By</h4>
-        <div style="background: linear-gradient(45deg, #667eea, #764ba2); padding: 1rem; border-radius: 10px; color: white; margin: 1rem 0;">
-            <p style="margin: 0.3rem 0; font-size: 1.1rem; color: white;">
-                🎓 <strong>Shivansh Mishra</strong><br>
-                🎓 <strong>Ravi Gupta</strong><br>
-                🎓 <strong>Shiwanshu Singh</strong><br>
-                🎓 <strong>Harshvardhan Sisodiya</strong><br>
-                🎓 <strong>Dhuru Madhuwal</strong><br>
-                🎓 <strong>Vishal Patel</strong>
-            </p>
-            <p style="margin: 0.5rem 0; font-size: 1.1rem;">
-                🏛️ <strong>BBD University</strong><br>
-                🎯 B.Tech CSE - Cloud Computing & Machine Learning<br>
-                📚 Section 2A | 🚀 Future AI Engineer
-            </p>
+<div style="margin-top: 4rem; padding: 2rem; background: rgba(30, 41, 59, 0.3); border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+    <h3 style="font-family: 'Outfit', sans-serif; color: #e2e8f0; margin-bottom: 1.5rem;">🚀 Built with ❤️ using Streamlit & Machine Learning</h3>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin: 2rem 0;">
+        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 16px 24px; border-radius: 16px;">
+            <h4 style="color: #60a5fa; margin: 0 0 12px 0;">👨‍💻 Core Team</h4>
+            <div style="color: #e2e8f0; line-height: 1.6;">
+                Shivansh Mishra • Ravi Gupta<br>
+                Shiwanshu Singh • Harshvardhan Sisodiya<br>
+                Dhuru Madhuwal • Vishal Patel
+            </div>
+        </div>
+        <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); padding: 16px 24px; border-radius: 16px;">
+            <h4 style="color: #c084fc; margin: 0 0 12px 0;">🏛️ Institution</h4>
+            <div style="color: #e2e8f0; line-height: 1.6;">
+                <strong>BBD University</strong><br>
+                B.Tech CSE - CC & ML<br>
+                Section 2A
+            </div>
         </div>
     </div>
-    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(102, 126, 234, 0.3);">
-        <p>🏠 House Price Prediction ML Model | 🤖 Powered by Artificial Intelligence</p>
-        <p>✨ Predicting your dream home's value with precision ✨</p>
-        <p style="font-size: 0.9rem; color: #667eea; margin-top: 1rem;">
-            📧 Academic Project | 🎓 Machine Learning Portfolio | 💡 Innovation in AI
-        </p>
-    </div>
+    
+    <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 2rem;">
+        Predicting your dream home's value with precision.<br>
+        Academic Project • Machine Learning Portfolio • Innovation in AI
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
 
-# Enhanced sidebar with developer information (BUG FIX: Fixed invalid HTML tags h7, h8, h9)
+# Enhanced sidebar with developer information
 st.sidebar.markdown("""
-<div class="metric-card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); border: 2px solid rgba(102, 126, 234, 0.3); padding: 1rem; border-radius: 10px;">
-    <h3 style="color: #667eea; text-align: center; margin-bottom: 1rem;">👨‍💻 Developers Team Members</h3>
-    <div style="text-align: center;">
-        <p style="color: #764ba2; margin: 0.3rem 0; font-size: 0.95rem;">
-            🎓 <strong>Shivansh Mishra</strong><br>
-            🎓 <strong>Ravi Gupta</strong><br>
-            🎓 <strong>Shiwanshu Singh</strong><br>
-            🎓 <strong>Harshvardhan Sisodiya</strong><br>
-            🎓 <strong>Dhuru Madhuwal</strong><br>
-            🎓 <strong>Vishal Patel</strong>
-        </p>
-        <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #666;">
-            🏛️ <strong>BBD University</strong><br>
-            🎯 B.Tech CSE (CC & ML)<br>
-            📚 Section 2A<br>
-            🚀 AI Enthusiast
-        </p>
-        <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(102, 126, 234, 0.1); border-radius: 5px;">
-            <p style="margin: 0; font-size: 0.8rem; color: #667eea;">
-                💡 Academic ML Project<br>
-                🎯 Future AI Engineer
-            </p>
+<div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 16px; margin-top: 2rem;">
+    <h4 style="font-family: 'Outfit', sans-serif; color: #60a5fa; text-align: center; margin-bottom: 1rem;">👨‍💻 Team Members</h4>
+    <div style="text-align: center; color: #e2e8f0; font-size: 0.95rem; line-height: 1.8;">
+        <strong>Shivansh Mishra</strong><br>
+        <strong>Ravi Gupta</strong><br>
+        <strong>Shiwanshu Singh</strong><br>
+        <strong>Harshvardhan Sisodiya</strong><br>
+        <strong>Dhuru Madhuwal</strong><br>
+        <strong>Vishal Patel</strong>
+        
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <span style="color: #c084fc;">🏛️ BBD University</span><br>
+            <span style="font-size: 0.85rem; color: #94a3b8;">B.Tech CSE (CC & ML)</span>
         </div>
     </div>
 </div>
