@@ -77,7 +77,7 @@ st.sidebar.success("✅ Model loaded successfully!")
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("## About")
-st.sidebar.markdown("This app uses Linear Regression to predict house prices based on various property features.")
+st.sidebar.markdown("This app uses a powerful Random Forest Regressor pipeline to predict house prices based on various property features.")
 
 
 # Main input form
