@@ -14,8 +14,9 @@ An advanced, interactive web application that predicts house prices based on var
 ## ✨ Key Features
 - **Instant Predictions:** Get real-time house price estimates instantly via an interactive UI.
 - **Advanced ML Pipeline:** Powered by a robust Scikit-Learn pipeline (`RandomForestRegressor`, `StandardScaler`, `OneHotEncoder`).
-- **Beautiful UI/UX:** A responsive, gradient-styled frontend built with Streamlit and custom CSS.
-- **Comprehensive Metrics:** Analyzes square footage, location, overall condition, and more.
+- **Premium Glassmorphic UI:** A beautifully responsive, animated front-end with floating cards, glowing buttons, and a dynamic mesh background.
+- **Interactive Data Visualizations:** Deep dive into the market with dynamic **Altair** charts (Histograms, Heatmaps, Boxplots) in the new Analytics tab.
+- **Real-Time Price Comparison:** Instantly compare your predicted home value against the local city average visually.
 
 ## 🛠️ Technology Stack
 - **Frontend / Backend:** [Streamlit](https://streamlit.io/)
