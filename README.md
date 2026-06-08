@@ -1,6 +1,6 @@
 # 🏠 House Price Prediction App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://shivansh-mishra-bbd-house-price-prediction-group-project-indian.streamlit.app/)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://shivansh-mishra-bbd-house-price-prediction-group-project-indian.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-orange?logo=scikit-learn)](https://scikit-learn.org/)
 
